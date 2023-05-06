@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% load crispy_forms_tags %}
+
+{% block content %} 
+
+{% include 'nav_bar.html' %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="content-section col-5">
+    <!-- Sign up form -->
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Join Now</legend>
+        {{ form | crispy }}
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" >Sign up</button>
+      </div>
+
+
+    </form>
+  </div>
+
+
+
+{% endblock content %}
+
