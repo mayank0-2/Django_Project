@@ -6,9 +6,48 @@
 
 {% block content %} 
 
+<script src="https://cdn.tailwindcss.com"></script>
+
 <p>Welcome to the Home page </p>
 
 {%include "nav_bar.html" %}
+
+{% if user.is_authenticated %}
+
+<h1 class="mb-2 mt-0 text-3xl font-medium leading-tight text-primary"> Recent Posts </h1>
+
+    {% for i in post %}
+
+
+    <div class="change-list rounded overflow-hidden shadow-lg"> 
+        <p>
+            <h3>
+                {{i.post_title}}
+            </h3>
+
+            <p>
+                {{i.date_published}}
+            </p>
+
+            <p>
+                {{pos.post_content}}
+            </p>
+
+            <p> 
+                Posted By {{ pos.user_name }}
+            </p>
+
+            <p>
+                Visit Profile <a href="#"> {{pos.user_profile_link}} </a>
+            </p>
+        </p>
+
+
+    </div>
+
+  {% endfor %}
+
+  {%endif/%}
 
 {% endblock content %} 
 
